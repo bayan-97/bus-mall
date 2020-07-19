@@ -12,10 +12,15 @@ nav img{
     margin-right: 50px;
     margin-left: 50px;
 }
-#allitems{
+#allitems {
     display: flex;
+    justify-content: space-between;
 
 }
+#allitems img {
+    margin-right: 50px;
+}
+
 ul{
     float: right;
     margin-right: 200px;
