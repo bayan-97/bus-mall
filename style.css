@@ -17,15 +17,19 @@ nav img{
     justify-content: space-between;
 
 }
-#allitems img {
-    margin-right: 50px;
-}
+
 
 ul{
     float: right;
     margin-right: 200px;
 }
-main{
+
+.be{
     display: flex;
-   
+    
+  
+}
+aside {
+    float:left;
+    margin-left: 50px;
 }
