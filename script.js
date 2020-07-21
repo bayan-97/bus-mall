@@ -8,7 +8,7 @@ var  totalClicks=0;
 var userClicks=[];
 
 var itemsUniq=[];
-
+var itemsindex=[];
 
 var itemofItemShown=[];
 function Items(path,name){
@@ -44,11 +44,9 @@ itemsSection.addEventListener('click', itemClickHandler);
 
 
 function generateRandomImg() {
-    var itemsindex=[];
+    // var itemsindex=[];
    
-//    for (let i = 0; i < itemsindex.length; i++) {
-//     itemsindex.pop(itemsindex[i]);
-//     }
+
    
     var firItems = document.getElementById('itemfir');
     var midItems = document.getElementById('itemmid');
@@ -57,46 +55,39 @@ function generateRandomImg() {
     midItemsindex=generateRandomnumber();
     secItemsindex=generateRandomnumber();
    
-    console.log(itemsUniq.includes(firItemsindex) , itemsUniq.includes(secItemsindex),itemsUniq.includes(midItemsindex));
-    // if(itemsUniq.includes(firItemsindex) || itemsUniq.includes(secItemsindex)||itemsUniq.includes(midItemsindex)) {
-
-       
-    //     generateRandomImg();
-    //     console.log("10");
-       
-    //      }
-    // checker(firItemsindex,secItemsindex,midItemsindex)
     
+
     
-    
-    while(firItemsindex===midItemsindex  ||firItemsindex===secItemsindex ||midItemsindex===secItemsindex  ) {
-         console.log(itemsUniq.includes(firItemsindex) , itemsUniq.includes(secItemsindex),itemsUniq.includes(midItemsindex));
-        
-         firItemsindex= generateRandomnumber();
-         midItemsindex=generateRandomnumber();
-         secItemsindex=generateRandomnumber();
-        //   checker(firItemsindex,secItemsindex,midItemsindex);
-    }
-    // checker(firItemsindex,secItemsindex,midItemsindex);
-    console.log(itemsUniq.includes(firItemsindex) , itemsUniq.includes(secItemsindex),itemsUniq.includes(midItemsindex));
-
-//  if ( !allitems[ firItemsindex]) {
-     
-//  }
-
-
   
-    // while(itemsUniq.includes(firItemsindex) || itemsUniq.includes(secItemsindex)||itemsUniq.includes(midItemsindex)) {
+  
+      while(firItemsindex===midItemsindex ||firItemsindex===secItemsindex|| midItemsindex===secItemsindex ) {
+        
+        
+        firItemsindex= generateRandomnumber();
+        midItemsindex=generateRandomnumber();
+        secItemsindex=generateRandomnumber();
+      
+   }
+     
+    
 
+    
+    
+    // while(firItemsindex===midItemsindex ||firItemsindex===secItemsindex|| midItemsindex===secItemsindex ) {
+        
+        
+    //      firItemsindex= generateRandomnumber();
+    //      midItemsindex=generateRandomnumber();
+    //      secItemsindex=generateRandomnumber();
        
-    //     firItemsindex= generateRandomnumber();
-    //     midItemsindex=generateRandomnumber();
-    //     secItemsindex=generateRandomnumber();
-       
-    //      }
-         
+    // }
+    // checker(firItemsindex,secItemsindex,midItemsindex);
+    // console.log(itemsUniq.includes(firItemsindex) , itemsUniq.includes(secItemsindex),itemsUniq.includes(midItemsindex));
+
 
      console.table( itemsindex);
+     
+    
     allitems[firItemsindex].itemofItemShown += 1;
     
     allitems[midItemsindex].itemofItemShown += 1;
@@ -105,22 +96,28 @@ function generateRandomImg() {
     
    
 
-   
+  
     var firPath = allitems[firItemsindex].path;
     var midPath = allitems[midItemsindex].path;
     var secPath = allitems[secItemsindex].path;
     firItems.setAttribute('src',firPath);
     midItems.setAttribute('src', midPath);
    secItems.setAttribute('src', secPath);
-   itemsindex.push(firItemsindex);
-   itemsindex.push(midItemsindex);
-   itemsindex.push(secItemsindex);
+//    itemsindex.push(firItemsindex);
+//    itemsindex.push(midItemsindex);
+//    itemsindex.push(secItemsindex);
+   itemsUniq[0]=firItemsindex
+   itemsUniq[1]=midItemsindex
+   itemsUniq[2]=secItemsindex
+
    
-   itemsUniq=[];
-   for (let i = 0; i < 3; i++) {
+ 
+//    for (let i = 0; i < itemsindex; i++) {
        
-    itemsUniq.push(itemsindex[i]);
-    }
+//     itemsUniq.push(itemsindex[i])  ;
+    
+//     }
+    
     // console.table(itemsUniq);
 // allitems[firItemsindex].uniq=false;   
 // allitems[midItemsindex].uniq=false;
@@ -133,7 +130,24 @@ function generateRandomImg() {
 }
 
 function  generateRandomnumber(){
-    return Math.floor(Math.random() * allitems.length );
+  var n=Math.floor(Math.random() * allitems.length );
+    
+    // firItemsindex=  Math.floor(Math.random() * allitems.length );
+    // midItemsindex= Math.floor(Math.random() * allitems.length );
+    // secItemsindex= Math.floor(Math.random() * allitems.length );
+   
+    while (itemsUniq.includes(n) || itemsUniq.includes(n)||itemsUniq.includes(n)) {
+
+          n=Math.floor(Math.random() * allitems.length );
+        // midItemsindex= Math.floor(Math.random() * allitems.length );
+        // secItemsindex= Math.floor(Math.random() * allitems.length );
+       
+        console.log("10");
+       
+
+         }
+         return n
+
 }
 
 function  itemClickHandler() {
@@ -226,6 +240,7 @@ function  itemClickHandler() {
               ],
               borderWidth: 1
             }]
+        
           },
           options: {
             scales: {
@@ -283,14 +298,13 @@ function  itemClickHandler() {
     }
 
 // var exam=[1,2,3];
-    function checker(it1,it2,it3) {
-        while(itemsUniq.includes(it1) || itemsUniq.includes(it2)||itemsUniq.includes(it3)) {
-            // firItemsindex+=1
-            // midItemsindex+=1
-            // secItemsindex+=1
-            generateRandomImg();
-       console.log("10");
-            
-        }
+    function checker(a1,a2,a3) {
+        while(firItemsindex===midItemsindex ||firItemsindex===secItemsindex|| midItemsindex===secItemsindex ) {
         
+        
+            firItemsindex= generateRandomnumber();
+            midItemsindex=generateRandomnumber();
+            secItemsindex=generateRandomnumber();
+          
+       }
     }
